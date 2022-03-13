@@ -8,11 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Remove="Images\on.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="Images\setting.png" />
+    <None Remove="Images\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\on.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\setting.png" />
+    <Resource Include="Images\sun.png" />
   </ItemGroup>
 
 </Project>

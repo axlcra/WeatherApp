@@ -5,163 +5,151 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp"
         mc:Ignorable="d"
-        Title="WeatherApp" Height="700" Width="1200"
+        Title="WeatherApp" 
+        Height="700" 
+        Width="1200"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        ResizeMode="NoResize"
-        Background="#001523">
+        Background="Transparent"
+        ResizeMode="NoResize">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Background="#00111c"
-              Grid.ColumnSpan="2"
-              MouseDown="Grid_MouseDown">
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="140"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Text="WeatherApp"
-                       FontSize="20"
-                       Foreground="White"
-                       Grid.Column="0"
-                       VerticalAlignment="Center"
+        <Grid Background="#2b2b2b">
+            <Grid x:Name="nav_pnl"
+                  HorizontalAlignment="Left"
+                  Width="70"
+                  Background="#121212">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <Image Source="Images/sun.png"
+                       Height="50"
+                       Width="50"
                        HorizontalAlignment="Center"
-                       FontFamily="Fonts/#Dosis"/>
-
-            <Button Click="OFF_Click"
-                    Grid.Column="11" Cursor="Hand">
-                
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="TextElement.FontFamily"
-                                    Value="Fonts/#Dosis"/>
-                        <Setter Property="Background" Value="#eb4034"/>
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#e81c0e"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="20" Height="20"
-                                HorizontalAlignment="Right"
-                                Margin="0 0 15 0"
-                                CornerRadius="5"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-        </Grid>
-
-        <StackPanel Grid.Row="1">
-
-            <StackPanel Margin="40 20 0 0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="WeatherApp"
-                           FontSize="80"
-                           Foreground="White"
-                           FontWeight="Medium"
-                           VerticalAlignment="Center"
-                           FontFamily="Fonts/#Dosis"/>
-                </StackPanel>
-
-                <StackPanel Margin="20 50 0 0">
-                    <TextBlock Text="City"
-                       Foreground="White"
-                       FontSize="40"
-                       FontWeight="Normal"
-                       FontFamily="Fonts/#Dosis"/>
-
-                    <TextBox Margin="0 5 0 0"
+                       VerticalAlignment="Center"
+                       Stretch="None"
+                       Grid.Row="0"/>
+                <Image Source="Images/setting.png"
+                       Height="50"
+                       Width="50"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Stretch="None"
+                       Grid.Row="2"/>
+            </Grid>
+            <Grid VerticalAlignment="Top"
+                  MouseDown="Grid_MouseDown"
+                  Height="700"
+                  Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="1"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="N/A"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Foreground="White"
+                               FontSize="80"
+                               Margin="40 0 0 0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"/>
+                    <Grid Grid.Row="2"
+                          Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="190"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Temp:"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Foreground="White"
+                                   FontSize="50"
+                                   Margin="40 0 0 0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="N/A"
+                                   x:Name="temp"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Foreground="White"
+                                   FontSize="50"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="2"
+                      Grid.Row="2">
+                    <TextBox Width="500"
                              x:Name="Country"
-                             HorizontalAlignment="Left"
-                             Background="#002137"
-                             BorderBrush="#002137"
-                             FontSize="30"
-                             Foreground="White"
-                             Width="300"/>
-
-                    <TextBlock Text="Temp"
-                       Foreground="White"
-                       FontSize="40"
-                       FontWeight="Normal"
-                       FontFamily="Fonts/#Dosis"
-                       Margin="0 10 0 0"/>
-
-                    <TextBlock Margin="0 5 0 0"
-                             x:Name="temp"
-                             Text=""
-                             HorizontalAlignment="Left"
-                             FontSize="30"
-                             Foreground="White"
-                             Width="100" Height="50"/>
-                </StackPanel>
-                
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal"
-                        Margin="60 10 0 0">
-                <Button Content="Search"
-                        Click="Search_Click"
-                        Foreground="white"
-                        FontSize="20"
-                        FontWeight="DemiBold">
-
+                             HorizontalAlignment="Right"
+                             Margin="0 0 25 0"
+                             BorderThickness="0"
+                             BorderBrush="White"
+                             Background="#1c1c1c">
+                    </TextBox>
+                </Grid>
+                <Button x:Name="close_btn"
+                        Grid.Column="4"
+                        Click="close_btn_Click">
                     <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="TextElement.FontFamily"
-                                    Value="Fonts/#Dosis"/>
-                            <Setter Property="Background" Value="#00406c"/>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#eb0000"/>
                             <Setter Property="Cursor" Value="Hand"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#003356"/>
+                                    <Setter Property="Background" Value="#b50000"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-
                     <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Width="80" Height="35"
-                                    CornerRadius="10"
+                        <ControlTemplate>
+                            <Border Width="20"
+                                    Height="20"
+                                    CornerRadius="20"
                                     Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
-            </StackPanel>
-        </StackPanel>
+                <Button x:Name="search_btn"
+                        Grid.Column="3"
+                        Grid.Row="2"
+                        Click="search_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#2485bd"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1a5c82"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -31,15 +31,14 @@ namespace WeatherApp
                 DragMove();
             }
         }
-
-        private void OFF_Click(object sender, RoutedEventArgs e)
+        private void close_btn_Click(object sender, RoutedEventArgs e)
         {
-            System.Environment.Exit(0);
+            Close();
         }
 
         private string API = "2cd120ea9ce1313d5a698df0a0c34cba";
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void search_Click(object sender, RoutedEventArgs e)`    !!
         {
             getWeather();
         }
