@@ -8,10 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\.png" />
+    <None Remove="Images\Icon\book.png" />
+    <None Remove="Images\Icon\pin.png" />
+    <None Remove="Images\Icon\search.png" />
+    <None Remove="Images\Icon\setting.png" />
+    <None Remove="Images\Icon\sun.png" />
     <None Remove="Images\on.png" />
     <None Remove="Images\search.png" />
     <None Remove="Images\setting.png" />
-    <None Remove="Images\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,10 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\on.png" />
-    <Resource Include="Images\search.png" />
-    <Resource Include="Images\setting.png" />
-    <Resource Include="Images\sun.png" />
+    <Resource Include="Images\Icon\book.png" />
+    <Resource Include="Images\Icon\pin.png" />
+    <Resource Include="Images\Icon\search.png" />
+    <Resource Include="Images\Icon\setting.png" />
+    <Resource Include="Images\Icon\sun.png" />
   </ItemGroup>
 
 </Project>

@@ -22,26 +22,32 @@ namespace WeatherApp
         public MainWindow()
         {
             InitializeComponent();
+            getWeather();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
         private void close_btn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Close(); 
+        }
+
+        private void minim_btn_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
 
         private string API = "2cd120ea9ce1313d5a698df0a0c34cba";
 
-        private void search_Click(object sender, RoutedEventArgs e)`    !!
-        {
-            getWeather();
-        }
+        //private void search_Click(object sender, RoutedEventArgs e)`    !!
+        //{
+        //    getWeather();
+        //}
+
+
 
         private void getWeather()
         {
@@ -54,7 +60,16 @@ namespace WeatherApp
 
                     Data.root info = JsonConvert.DeserializeObject<Data.root>(json);
 
-                    temp.Text = info.main.temp.ToString();
+                    var image = new Image();
+                    var fullFilePath = @"http://openweathermap.org/img/wn/" + info.weather[0].icon + "@2x.png";
+
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
+                    bitmap.EndInit();
+
+                    WeatherImage.Source = bitmap;
+                    Temp.Text = info.main.temp.ToString() + "°";
                 }
             }
         }

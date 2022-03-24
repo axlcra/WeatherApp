@@ -14,142 +14,271 @@
         Background="Transparent"
         ResizeMode="NoResize">
     <Grid>
-        <Grid Background="#2b2b2b">
-            <Grid x:Name="nav_pnl"
-                  HorizontalAlignment="Left"
-                  Width="70"
-                  Background="#121212">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="70"/>
-                </Grid.RowDefinitions>
-                <Image Source="Images/sun.png"
-                       Height="50"
-                       Width="50"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Stretch="None"
-                       Grid.Row="0"/>
-                <Image Source="Images/setting.png"
-                       Height="50"
-                       Width="50"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Stretch="None"
-                       Grid.Row="2"/>
-            </Grid>
-            <Grid VerticalAlignment="Top"
-                  MouseDown="Grid_MouseDown"
-                  Height="700"
-                  Background="Transparent">
+        <Border Background="#1f1f1f" CornerRadius="15">
+            <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Column="1"
-                      Grid.Row="1">
+                
+                <Border HorizontalAlignment="Left"
+                        Width="80"
+                        Background="#171717"
+                        CornerRadius="15"
+                        Grid.Column="0">
+                    <Grid x:Name="nav_pnl">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <ToggleButton x:Name="home_btn"
+                                  Grid.Column="0"
+                                  Grid.Row="0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Height="50"
+                                  Width="50"
+                                  BorderThickness="0">
+
+                                <ToggleButton.Background>
+
+                                    <ImageBrush ImageSource="Images/Icon/sun.png"
+                                            Stretch="None"/>
+
+                                </ToggleButton.Background>
+
+                            </ToggleButton>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+
+                            <Label VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center">
+
+                                <Grid Height="auto">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="70"/>
+                                        <RowDefinition Height="70"/>
+                                    </Grid.RowDefinitions>
+
+                                    <ToggleButton x:Name="pin_btn"
+                                          Grid.Row="0"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          Height="50"
+                                          Width="50"
+                                          BorderThickness="0">
+
+                                        <ToggleButton.Background>
+
+                                            <ImageBrush ImageSource="Images/Icon/pin.png"
+                                                Stretch="None"/>
+
+                                        </ToggleButton.Background>
+
+                                    </ToggleButton>
+
+                                    <ToggleButton x:Name="pin2_btn"
+                                          Grid.Row="1"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          Height="50"
+                                          Width="50"
+                                          BorderThickness="0">
+
+                                        <ToggleButton.Background>
+
+                                            <ImageBrush ImageSource="Images/Icon/book.png"
+                                                Stretch="None"/>
+
+                                        </ToggleButton.Background>
+
+                                    </ToggleButton>
+
+                                </Grid>
+                            </Label>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <ToggleButton x:Name="setting_btn"
+                                  Grid.Column="0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Height="50"
+                                  Width="50"
+                                  BorderThickness="0">
+
+                                <ToggleButton.Background>
+
+                                    <ImageBrush ImageSource="Images/Icon/setting.png"
+                                        Stretch="None"/>
+
+                                </ToggleButton.Background>
+
+                            </ToggleButton>
+                        </Grid>
+
+                    </Grid>
+                    
+                </Border>
+                <Grid VerticalAlignment="Top"
+                      Grid.Column="1">
+
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="120"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="N/A"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Foreground="White"
-                               FontSize="80"
-                               Margin="40 0 0 0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"/>
-                    <Grid Grid.Row="2"
-                          Grid.Column="0">
+
+                    <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="190"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <TextBlock Width="1120" 
+                                       Height="40" 
+                                       MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+
+                            <ToggleButton x:Name="minim_btn"
+                                  Click="minim_btn_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+
+                                        <Setter Property="Background" Value="#ffbe30"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+
+                                                <Setter Property="Background" Value="#c79426"/>
+
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </ToggleButton.Style>
+
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+
+                                        <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+
+                            </ToggleButton>
+
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+
+                            <ToggleButton x:Name="close_btn"
+                                  Click="close_btn_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+
+                                        <Setter Property="Background" Value="#ff6159"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+
+                                                <Setter Property="Background" Value="#cc4e47"/>
+
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </ToggleButton.Style>
+
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+
+                                        <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+
+                            </ToggleButton>
+
+                        </Grid>
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="600"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Temp:"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   Foreground="White"
-                                   FontSize="50"
-                                   Margin="40 0 0 0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="N/A"
-                                   x:Name="temp"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Foreground="White"
-                                   FontSize="50"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock x:Name="Country"
+                                       Text="Kraków"
+                                       Foreground="White"
+                                       FontFamily="Fonts/#Dosis"
+                                       FontSize="80"
+                                       Grid.Row="1"
+                                       Margin="40 0 0 0"
+                                       Background="Transparent"
+                                       VerticalAlignment="Center"/>
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image x:Name="WeatherImage" 
+                                       Grid.Column="0"
+                                       Width="150"
+                                       Height="150"
+                                       Source=""/>
+
+                                <TextBlock x:Name="Temp"
+                                     Text="n/a"
+                                     Foreground="White"
+                                     FontFamily="Fonts/#Dosis"
+                                     FontSize="100"
+                                     Grid.Column="2"
+                                     Background="Transparent"
+                                     VerticalAlignment="Center"/>
+
+                            </Grid>
+
+                        </Grid>
+                        
                     </Grid>
                 </Grid>
-                <Grid Grid.Column="2"
-                      Grid.Row="2">
-                    <TextBox Width="500"
-                             x:Name="Country"
-                             HorizontalAlignment="Right"
-                             Margin="0 0 25 0"
-                             BorderThickness="0"
-                             BorderBrush="White"
-                             Background="#1c1c1c">
-                    </TextBox>
-                </Grid>
-                <Button x:Name="close_btn"
-                        Grid.Column="4"
-                        Click="close_btn_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#eb0000"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#b50000"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Border Width="20"
-                                    Height="20"
-                                    CornerRadius="20"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-                <Button x:Name="search_btn"
-                        Grid.Column="3"
-                        Grid.Row="2"
-                        Click="search_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#2485bd"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#1a5c82"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
             </Grid>
-        </Grid>
+        </Border>
     </Grid>
 </Window>
