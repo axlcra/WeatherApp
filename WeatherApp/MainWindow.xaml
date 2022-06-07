@@ -7,23 +7,26 @@
         mc:Ignorable="d"
         Title="WeatherApp" 
         Height="700" 
+        MinHeight="420"
         Width="1200"
+        MinWidth="700"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="Transparent"
-        ResizeMode="NoResize">
+        ResizeMode="CanResizeWithGrip">
+
     <Grid>
-        <Border Background="#1f1f1f" CornerRadius="15">
+        <Border Style="{StaticResource Background}" CornerRadius="15" Opacity="0.98">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
-                <Border HorizontalAlignment="Left"
+
+                <Border Style="{StaticResource SidePanel}"
+                        HorizontalAlignment="Left"
                         Width="80"
-                        Background="#171717"
                         CornerRadius="15"
                         Grid.Column="0">
                     <Grid x:Name="nav_pnl">
@@ -34,7 +37,7 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0">
-                            <ToggleButton x:Name="home_btn"
+                            <ToggleButton 
                                   Grid.Column="0"
                                   Grid.Row="0"
                                   VerticalAlignment="Center"
@@ -66,6 +69,7 @@
                                     </Grid.RowDefinitions>
 
                                     <ToggleButton x:Name="pin_btn"
+                                          Click="mainPage_btn_Click"
                                           Grid.Row="0"
                                           VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
@@ -105,6 +109,7 @@
 
                         <Grid Grid.Row="2">
                             <ToggleButton x:Name="setting_btn"
+                                          Click="settingsPage_btn_Click"
                                   Grid.Column="0"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
@@ -123,7 +128,7 @@
                         </Grid>
 
                     </Grid>
-                    
+
                 </Border>
                 <Grid VerticalAlignment="Top"
                       Grid.Column="1">
@@ -225,58 +230,7 @@
                         </Grid>
 
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="600"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                                <RowDefinition Height="120"/>
-                                <RowDefinition Height="150"/>
-                                <RowDefinition Height="150"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock x:Name="Country"
-                                       Text="Kraków"
-                                       Foreground="White"
-                                       FontFamily="Fonts/#Dosis"
-                                       FontSize="80"
-                                       Grid.Row="1"
-                                       Margin="40 0 0 0"
-                                       Background="Transparent"
-                                       VerticalAlignment="Center"/>
-
-                            <Grid Grid.Row="2">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Image x:Name="WeatherImage" 
-                                       Grid.Column="0"
-                                       Width="150"
-                                       Height="150"
-                                       Source=""/>
-
-                                <TextBlock x:Name="Temp"
-                                     Text="n/a"
-                                     Foreground="White"
-                                     FontFamily="Fonts/#Dosis"
-                                     FontSize="100"
-                                     Grid.Column="2"
-                                     Background="Transparent"
-                                     VerticalAlignment="Center"/>
-
-                            </Grid>
-
-                        </Grid>
-                        
-                    </Grid>
+                    <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </Grid>
         </Border>
