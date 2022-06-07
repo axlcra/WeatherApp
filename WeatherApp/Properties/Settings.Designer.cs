@@ -34,5 +34,17 @@ namespace WeatherApp.Properties {
                 this["ColorMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Kraków")]
+        public string CityNameX {
+            get {
+                return ((string)(this["CityNameX"]));
+            }
+            set {
+                this["CityNameX"] = value;
+            }
+        }
     }
 }

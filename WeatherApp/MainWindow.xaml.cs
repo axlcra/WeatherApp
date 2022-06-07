@@ -35,6 +35,9 @@ public partial class MainWindow : Window
     private Page _weatherInfo = new WeatherInfo();
     private Page WeatherInfo { get { return _weatherInfo; } }
 
+    private Page _cityList = new CityList();
+    private Page CityList { get { return _cityList; } }
+
     private void close_btn_Click(object sender, RoutedEventArgs e)
     {
         Close();
@@ -45,6 +48,11 @@ public partial class MainWindow : Window
         WindowState = WindowState.Minimized;
     }
 
+    private void max_btn_Click(object sender, RoutedEventArgs e)
+    {
+        WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+    }
+
     private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         DragMove();
@@ -53,6 +61,11 @@ public partial class MainWindow : Window
     private void mainPage_btn_Click(object sender, RoutedEventArgs e)
     {
         Main.Content = WeatherInfo;
+    }
+
+    private void cityList_btn_Click(object sender, RoutedEventArgs e)
+    {
+        Main.Content = CityList;
     }
 
     private void settingsPage_btn_Click(object sender, RoutedEventArgs e)

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Images\.png" />
+    <None Remove="Images\Icon\add.png" />
     <None Remove="Images\Icon\book.png" />
     <None Remove="Images\Icon\pin.png" />
     <None Remove="Images\Icon\refresh.png" />
@@ -26,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Icon\add.png" />
     <Resource Include="Images\Icon\book.png" />
     <Resource Include="Images\Icon\pin.png" />
     <Resource Include="Images\Icon\refresh.png" />
@@ -47,6 +49,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

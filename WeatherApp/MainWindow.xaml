@@ -87,12 +87,13 @@
                                     </ToggleButton>
 
                                     <ToggleButton x:Name="pin2_btn"
-                                          Grid.Row="1"
-                                          VerticalAlignment="Center"
-                                          HorizontalAlignment="Center"
-                                          Height="50"
-                                          Width="50"
-                                          BorderThickness="0">
+                                                  Click="cityList_btn_Click"
+                                                  Grid.Row="1"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"
+                                                  Height="50"
+                                                  Width="50"
+                                                  BorderThickness="0">
 
                                         <ToggleButton.Background>
 
@@ -141,6 +142,7 @@
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
                             <ColumnDefinition Width="20"/>
                             <ColumnDefinition Width="40"/>
                         </Grid.ColumnDefinitions>
@@ -191,6 +193,45 @@
                         </Grid>
 
                         <Grid Grid.Column="2">
+
+                            <ToggleButton x:Name="max_btn"
+                                  Click="max_btn_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+
+                                        <Setter Property="Background" Value="#00b315"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+
+                                                <Setter Property="Background" Value="#018f12"/>
+
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </ToggleButton.Style>
+
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+
+                                        <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+
+                            </ToggleButton>
+
+                        </Grid>
+
+                        <Grid Grid.Column="3">
 
                             <ToggleButton x:Name="close_btn"
                                   Click="close_btn_Click">
