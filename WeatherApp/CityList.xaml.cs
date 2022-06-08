@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,53 +22,33 @@ namespace WeatherApp
     /// </summary>
     public partial class CityList : Page
     {
+        List<string> city = new List<string>();
+        private string _path = "./Data/cityList.json";
 
         public CityList()
         {
             InitializeComponent();
-            List<string> citis = new List<string>()
+            ReadFile();
+        }
+
+        public void ReadFile()
+        {
+            if (File.Exists(_path))
             {
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań",
-                "Kraków",
-                "Warszawa",
-                "Poznań"
-            };
-            cityList.ItemsSource = citis;
+                string file = File.ReadAllText(_path);
+                city = JsonConvert.DeserializeObject<List<string>>(file);
+                cityList.ItemsSource = city;
+            }
+            else
+            {
+                city.Clear();
+                cityList.ItemsSource = city;
+            }
+        }
+
+        private void refresh_btn_Click(object sender, RoutedEventArgs e)
+        {
+            ReadFile();
         }
     }
 }

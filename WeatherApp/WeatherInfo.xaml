@@ -139,59 +139,62 @@
 
                 <Grid Grid.Row="0" Height="123456789"/>
 
-                <ToggleButton x:Name="add_btn"
+                <Button x:Name="add_btn"
                               Click="add_btn_Click"
                                   Grid.Row="1"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
                                   Height="50"
                                   Width="50"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                              Focusable="False">
 
-                    <ToggleButton.Background>
+                    <Button.Background>
 
                         <ImageBrush ImageSource="Images/Icon/add.png"
                                             Stretch="None"/>
 
-                    </ToggleButton.Background>
+                    </Button.Background>
 
-                </ToggleButton>
+                </Button>
 
-                <ToggleButton x:Name="search_btn"
+                <Button x:Name="search_btn"
                               Click="search_btn_Click"
                                   Grid.Row="2"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
                                   Height="50"
                                   Width="50"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                              Focusable="False">
 
-                    <ToggleButton.Background>
+                    <Button.Background>
 
                         <ImageBrush ImageSource="Images/Icon/search.png"
                                             Stretch="None"/>
 
-                    </ToggleButton.Background>
+                    </Button.Background>
 
-                </ToggleButton>
+                </Button>
 
-                <ToggleButton x:Name="refresh_btn"
+                <Button x:Name="refresh_btn"
                               Click="refresh_btn_Click"
                                   Grid.Row="3"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
                                   Height="50"
                                   Width="50"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                              Focusable="False">
 
-                    <ToggleButton.Background>
+                    <Button.Background>
 
                         <ImageBrush ImageSource="Images/Icon/refresh.png"
                                             Stretch="None"/>
 
-                    </ToggleButton.Background>
+                    </Button.Background>
 
-                </ToggleButton>
+                </Button>
             </Grid>
 
 

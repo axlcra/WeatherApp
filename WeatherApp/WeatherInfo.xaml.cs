@@ -25,10 +25,16 @@ namespace WeatherApp;
 public partial class WeatherInfo : Page
 {
     List<string> cityList = new List<string>();
+    private string _path = "./Data/cityList.json";
 
     public WeatherInfo()
     {
         InitializeComponent();
+        if (File.Exists(_path))
+        {
+            string file = File.ReadAllText(_path);
+            cityList = JsonConvert.DeserializeObject<List<string>>(file);
+        }
         getWeather();
     }
 
@@ -89,12 +95,18 @@ public partial class WeatherInfo : Page
 
     private void add_btn_Click(object sender, RoutedEventArgs e)
     {
-        cityList.Add(WeatherCity.Text);
-        var json = JsonConvert.SerializeObject(cityList);
-
         string _path = "./Data/cityList.json";
 
-        using (var writer = new StreamWriter(_path)){
+        if (!File.Exists(_path))
+        {
+            cityList.Clear();
+        }
+
+        cityList.Add(WeatherCity.Text);
+        var json = JsonConvert.SerializeObject(cityList, Formatting.Indented);
+
+        using (var writer = new StreamWriter(_path))
+        {
             writer.Write(json);
         }
     }

@@ -14,7 +14,8 @@
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="Transparent"
-        ResizeMode="CanResizeWithGrip">
+        ResizeMode="CanResizeWithGrip"
+        Icon="Images/Icon/sun.png">
 
     <Grid>
         <Border Style="{StaticResource Background}" CornerRadius="15" Opacity="0.98">
@@ -37,23 +38,24 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0">
-                            <ToggleButton 
+                            <Button 
                                   Grid.Column="0"
                                   Grid.Row="0"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
                                   Height="50"
                                   Width="50"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                                  Focusable="False">
 
-                                <ToggleButton.Background>
+                                <Button.Background>
 
                                     <ImageBrush ImageSource="Images/Icon/sun.png"
                                             Stretch="None"/>
 
-                                </ToggleButton.Background>
+                                </Button.Background>
 
-                            </ToggleButton>
+                            </Button>
                         </Grid>
 
                         <Grid Grid.Row="1">
@@ -68,64 +70,67 @@
                                         <RowDefinition Height="70"/>
                                     </Grid.RowDefinitions>
 
-                                    <ToggleButton x:Name="pin_btn"
+                                    <Button x:Name="pin_btn"
                                           Click="mainPage_btn_Click"
                                           Grid.Row="0"
                                           VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
                                           Height="50"
                                           Width="50"
-                                          BorderThickness="0">
+                                          BorderThickness="0"
+                                                  Focusable="False">
 
-                                        <ToggleButton.Background>
+                                        <Button.Background>
 
                                             <ImageBrush ImageSource="Images/Icon/pin.png"
                                                 Stretch="None"/>
 
-                                        </ToggleButton.Background>
+                                        </Button.Background>
 
-                                    </ToggleButton>
+                                    </Button>
 
-                                    <ToggleButton x:Name="pin2_btn"
+                                    <Button x:Name="pin2_btn"
                                                   Click="cityList_btn_Click"
                                                   Grid.Row="1"
                                                   VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"
                                                   Height="50"
                                                   Width="50"
-                                                  BorderThickness="0">
+                                                  BorderThickness="0"
+                                                  Focusable="False">
 
-                                        <ToggleButton.Background>
+                                        <Button.Background>
 
                                             <ImageBrush ImageSource="Images/Icon/book.png"
                                                 Stretch="None"/>
 
-                                        </ToggleButton.Background>
+                                        </Button.Background>
 
-                                    </ToggleButton>
+                                    </Button>
 
                                 </Grid>
                             </Label>
                         </Grid>
 
                         <Grid Grid.Row="2">
-                            <ToggleButton x:Name="setting_btn"
+                            <Button x:Name="setting_btn"
                                           Click="settingsPage_btn_Click"
                                   Grid.Column="0"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
                                   Height="50"
                                   Width="50"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                                          Focusable="False">
 
-                                <ToggleButton.Background>
+                                <Button.Background>
 
                                     <ImageBrush ImageSource="Images/Icon/setting.png"
                                         Stretch="None"/>
 
-                                </ToggleButton.Background>
+                                </Button.Background>
 
-                            </ToggleButton>
+                            </Button>
                         </Grid>
 
                     </Grid>
@@ -156,7 +161,8 @@
                         <Grid Grid.Column="1">
 
                             <ToggleButton x:Name="minim_btn"
-                                  Click="minim_btn_Click">
+                                  Click="minim_btn_Click"
+                                          Focusable="False">
                                 <ToggleButton.Style>
                                     <Style TargetType="ToggleButton">
 
@@ -195,7 +201,8 @@
                         <Grid Grid.Column="2">
 
                             <ToggleButton x:Name="max_btn"
-                                  Click="max_btn_Click">
+                                  Click="max_btn_Click"
+                                          Focusable="False">
                                 <ToggleButton.Style>
                                     <Style TargetType="ToggleButton">
 
@@ -234,7 +241,8 @@
                         <Grid Grid.Column="3">
 
                             <ToggleButton x:Name="close_btn"
-                                  Click="close_btn_Click">
+                                  Click="close_btn_Click"
+                                          Focusable="False">
                                 <ToggleButton.Style>
                                     <Style TargetType="ToggleButton">
 

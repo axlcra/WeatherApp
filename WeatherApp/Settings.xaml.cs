@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WeatherApp;
 
@@ -23,6 +24,8 @@ namespace WeatherApp;
 
 public partial class Settings : Page
 {
+    List<string> city = new List<string>();
+    private string _path = "./Data/cityList.json";
     public Settings()
     {
         InitializeComponent();
@@ -32,6 +35,15 @@ public partial class Settings : Page
     {
         Properties.Settings.Default.ColorMode = Properties.Settings.Default.ColorMode == "Dark" ? "Light" : "Dark";
         Properties.Settings.Default.Save();
+    }
+
+    private void delete_btn_Click(object sender, RoutedEventArgs e)
+    {
+        if (File.Exists(_path))
+        {
+            File.Delete(_path);
+            city.Clear();
+        }
     }
 }
 

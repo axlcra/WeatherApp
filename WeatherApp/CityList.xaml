@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
@@ -19,17 +20,11 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--<ComboBox x:Name="City"
-                      IsEditable="true"
-                      IsReadOnly="true"
-                      Background="Transparent"
-                      Grid.Row="1"
-                      FontSize="20"
-                      FontFamily="Fonts/#Dosis"
-                      Foreground="Black"/>-->
             <ListBox x:Name="cityList" 
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      Grid.Row="1"
+                     Height="auto"
+                     Width="auto"
                      Background="Transparent"
                      BorderThickness="0"
                      ScrollViewer.CanContentScroll="False"
@@ -39,13 +34,39 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontSize="30" 
                                        FontFamily="Fonts/#Dosis" 
-                                       Foreground="White" 
                                        Margin="10 10 10 10" 
                                        Text="{Binding}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </Grid>
+        <Grid Grid.Column="2"
+              VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Height="800"/>
+            <Button x:Name="refresh_btn"
+                              Click="refresh_btn_Click"
+                                  Grid.Row="1"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Height="50"
+                                  Width="50"
+                                  BorderThickness="0"
+                          Focusable="False">
+
+                <Button.Background>
+
+                    <ImageBrush ImageSource="Images/Icon/refresh.png"
+                                            Stretch="None"/>
+
+                </Button.Background>
+
+            </Button>
         </Grid>
     </Grid>
 </Page>
